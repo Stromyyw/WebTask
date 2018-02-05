@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="killstrom.js"></script>
+	<style>
+		body{
+			background-color: #999;
+		}
+		.wrap{
+			position: relative;
+		}
+		li{
+			list-style: none;
+			float:left;
+			padding: 10px;
+			width:10px;
+			height:10px;
+			line-height: 10px;
+			text-align: center;
+			background-color: #e3e3e3;
+			margin-left: 10px;
+		}
+		.nice{
+			background-color: #f00;
+		}
+		#score{
+			height:10px;
+			padding:10px;
+			line-height: 10px;
+		}
+		div span{
+			margin:0 5px;
+		}
+		div #nav{
+			position: absolute;
+			top:40px;
+			left:50px;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<div id="score"><span id="grade">0</span>分</div>
+		<div id="nav">^_^</div>
+	</div>	
+	<script>
+		var liList = getobj("li")
+		var grade = getobj("#grade")
+		var nav = getobj("#nav")
+		var s = 40
+		bindEvent(liList,"onmouseenter",function(e){
+			var _this = e.target
+			for (var i = 0; i < liList.length; i++) {
+				liList[i].className = ""
+				liList[i].setAttribute("num",i)	
+				var m = _this.getAttribute("num")
+				nav.style.marginLeft = parseInt(m * s) + "px "
+				nav.style.display = "block"
+				grade.innerHTML = parseInt(m) + 1
+				if (_this.className == "") {
+					for (var a = 0; a <= m; a++) {
+						_this.className = "nice"
+						liList[a].className = "nice"
+					}
+				}
+			}	
+		})
+	</script>
+</body>
+</html>
