@@ -58,8 +58,28 @@
 		var grade = getobj("#grade")
 		var nav = getobj("#nav")
 		var s = 40
+		var sure = false
 		bindEvent(liList,"onmouseenter",function(e){
-			var _this = e.target
+			_this = e.target
+			set()
+		})
+		
+		bindEvent(liList,"onclick",function(){
+			if (!sure) {
+				set()
+				sure = false
+			}
+			else{
+				bindEvent(liList,"onmouseleave",function(){
+					for (var i = 0; i < liList.length; i++) {	
+						liList[i].className = ""
+						nav.style.display = "none"
+					}
+				})
+				sure = true
+			}
+		})
+		function set(){
 			for (var i = 0; i < liList.length; i++) {
 				liList[i].className = ""
 				liList[i].setAttribute("num",i)	
@@ -74,7 +94,7 @@
 					}
 				}
 			}	
-		})
+		}
 	</script>
 </body>
 </html>
