@@ -75,14 +75,14 @@
 				else{
 					$starList.eq(a).removeClass("focus")
 				}
-				commstar.getElementsByClassName("face")[a].style.display = "none"
+				$(".face").eq(a).hide()
 			}
-			this.firstChild.style.display = "block"
+			$(this).show()
 			this.firstChild.style.backgroundPosition =(i * 20) + "px"
 		})
 		$(".commstar").mouseleave(function(){
 			for (var c = 0; c < $starList.length; c++) {
-				commstar.getElementsByClassName("face")[c].style.display = "none"
+				$(".face").eq(c).hide()
 				$starList.eq(c).removeClass("focus")
 			}
 		})
