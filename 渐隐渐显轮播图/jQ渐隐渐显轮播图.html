@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src = "../jQurey.min.js"></script>
+	<style>
+		*{margin:0;padding:0;}
+		.pic{
+			width:1000px;
+			margin:100px auto;
+			position: relative;
+			overflow: hidden;
+		}
+		.pic li{
+			list-style: none;
+			display: none;
+		}
+		.pic .show{
+			display: block;
+		}
+		#up,#down{
+			position: absolute;
+			top:40%;
+			cursor:pointer;
+			transition:all 0.5s;
+			opacity: 0.5;
+		}
+		#up:hover,#down:hover{
+			transform:scale(1.1);
+			opacity: 1;
+		}
+		#up{
+			left:20px;
+		}
+		#down{
+			right:20px;
+		}
+		.nav{
+			position: absolute;
+			top:470px;
+			left:45%;
+		}
+		.nav .fours{
+			background-color: #dd4012;
+		}
+		span{
+			float:left;
+			margin:5px;
+			width:16px;
+			height:16px;
+			border-radius:50%;
+			background-color: #e3e3e3;
+			font-size: 0;
+		}
+		#nav{
+			position: absolute;
+			top:470px;
+			left:45%;
+		}
+		#nav .fours{
+			background-color: #dd4012;
+		}
+		span{
+			float:left;
+			margin:5px;
+			width:16px;
+			height:16px;
+			border-radius:50%;
+			background-color: #e3e3e3;
+			font-size: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="pic">
+		<ul id="ul">
+			<li class="show"><img src="images/1.jpg" alt=""></li>
+			<li><img src="images/2.jpg" alt=""></li>
+			<li><img src="images/3.jpg" alt=""></li>
+			<li><img src="images/4.jpg" alt=""></li>
+			<li><img src="images/5.jpg" alt=""></li>
+			<li><img src="images/6.jpg" alt=""></li>
+		</ul>
+		<img id="up" src="images/l.png" alt="">
+		<img id="down" src="images/r.png" alt="">
+	</div>
+	<div id="nav">
+		<span class="fours">0</span>
+		<span>1</span>
+		<span>2</span>
+		<span>3</span>
+		<span>4</span>
+		<span>5</span>
+	</div>
+	<script>
+		var n = 0
+		var $liList = $("#ul li")
+		$("#down").click(function(){
+			if (n < $liList.length-1) {
+				n++	
+				$("#ul li").eq(n-1).hide()
+				$("#ul li").eq(n).fadeIn()
+				$("#nav span").eq(n-1).removeClass("fours")
+				$("#nav span").eq(n).addClass("fours")
+			}
+			else{
+				n = 0
+				$("#ul li").eq($liList.length-1).hide()
+				$("#ul li").eq(n).fadeIn()
+				$("#nav span").eq($liList.length-1).removeClass("fours")
+				$("#nav span").eq(n).addClass("fours")
+			}
+		})
+		$("#up").click(function(){
+			if (n !== 0) {
+				n--
+				$("#ul li").eq(n+1).hide()
+				$("#ul li").eq(n).fadeIn()
+				$("#nav span").eq(n+1).removeClass("fours")
+				$("#nav span").eq(n).addClass("fours")
+			}
+			else{
+				n = $liList.length-1
+				$("#ul li").eq(0).hide()
+				$("#ul li").eq($liList.length-1).fadeIn()
+				$("#nav span").eq(0).removeClass("fours")
+				$("#nav span").eq($liList.length-1).addClass("fours")
+			}
+		})
+		for (var i = 0; i < $("#nav span").length-1; i++) {
+			$("#nav span").click(function(){
+				$("#nav span").removeClass("fours")
+				i = Number(this.innerHTML)
+				$(this).addClass("fours")
+				if (n !== i) {
+					$("#ul li").hide()
+					$("#ul li").eq(i).fadeIn()
+					n = i
+				}
+			})
+		}
+	</script>
+</body>
+</html>

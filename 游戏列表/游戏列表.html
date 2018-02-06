@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src = "../jQurey.min.js"></script>
+	<script src = "../killstrom.js"></script>
+	<style>
+	*{margin:0;padding:0;}
+		.wrap{
+			width:300px;
+			margin:50px 200px;
+		}
+		#selector{
+			position: relative;
+		}
+		#selector h2{
+			width: 300px;
+			background-color: #f99;
+			line-height: 40px;
+			font-size:16px;
+			text-indent:15px;
+			cursor:pointer;
+			
+		}
+		#selector img{
+			position: absolute;
+			top:12px;
+			right:10px;
+			width:16px;
+			height:16px;
+			cursor:pointer;
+		}
+		#selector:hover img{
+			transform:scale(1.3);
+		}
+		#selector ul{
+			border:1px solid #e3e3e3;
+			overflow:hidden;
+			padding:5px;
+			display: none;
+		}
+		li{
+			float:left;
+			font-size:14px;
+			list-style: none;
+			margin-left: 8px;
+			margin-bottom: 10px;
+			padding:4px;
+			cursor:pointer;
+			border:1px solid#fff;
+		}
+		.haschose{
+			border:1px solid#f00;
+		}
+		#hasgame{
+			color:#dd4012;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div>已选择：<span id="hasgame">请选择游戏</span></div>
+		<div id="selector">
+			<h2>游戏列表</h2>
+			<img src="images/bottom.png" alt="">
+			<ul id="gameList">
+				<li>魔兽世界</li>
+				<li>王者荣耀</li>
+				<li>英雄联盟</li>
+				<li>QQ飞车</li>
+				<li>绝地求生</li>
+				<li>地下城与勇士</li>
+				<li>贪玩蓝月</li>
+				<li>天涯明月刀</li>
+				<li>逆战</li>
+				<li>穿越火线</li>
+				<li>QQ三国</li>
+				<li>QQ炫舞</li>
+				<li>黑色沙漠</li>
+				<li>上古卷轴</li>
+				<li>剑网3</li>
+				<li>九阴真经2</li>
+				<li>失落的方舟</li>
+				<li>MU</li>
+				<li>CS:GO</li>
+				<li>神武3</li>
+				<li>古剑OL</li>
+				<li>龙之谷</li>
+				<li>影武者</li>
+				<li>坦克世界</li>
+				<li>龙门虎将</li>
+				<li>笑傲江湖</li>
+				<li>灵山奇缘</li>
+			</ul>
+		</div>	
+	</div>
+
+	<script>
+	// 利用jQurey绑定点击事件，赋予slide类名
+		$("#selector h2").click(function(){
+			$("#gameList").slideToggle()
+			$(this).toggleClass("slide")
+		})
+		// 小箭头动画效果
+		var img = getobj("img")[0]
+		var selector = getobj("#selector")
+		// 绑定点击事件的元素并执行函数
+			selector.onclick=function(){
+				// 判断是否有slide类名
+				if (selector.className == "slide") {
+					// 有的话旋转180°
+					img.style.transform = "rotate(180deg)"
+				}
+				// 不然不旋转
+				else{
+					img.style.transform = "rotate(0deg)"
+				}
+			}
+			// 绑定li事件，赋予haschose类名
+		$("#gameList li").click(function(){
+			var arr = []
+			$(this).toggleClass("haschose")
+			// 枚举有haschose类名的li，插入数组里
+			for (var i = 0; i < $("#gameList li").length; i++) {
+				if ($("#gameList li")[i].className == "haschose") {
+					arr.push($("#gameList li")[i].innerHTML)
+				}
+			}
+			// 判断如果数组为空，则让选择至少游戏
+			if (arr.length) {
+				$("#hasgame").html(arr.toString())
+			}
+			// 否则就将数组改为string型，并且将游戏名字输入hasgame
+			else{
+				$("#hasgame").html("请至少选择一个游戏")
+			}
+		})
+	</script>
+</body>
+</html>

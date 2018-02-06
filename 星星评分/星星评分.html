@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../jQurey.min.js"></script>
+	<style>
+		*{margin:0;padding:0;}
+		li{list-style:none;}
+		body{
+			font-size:14px;
+			color:#666;
+		}
+		.star{
+			width:14px;
+			height:14px;
+			display:inline-block;
+			background-image: url(images/commstar.png);
+			background-position:-1px -1px;
+			cursor:pointer;
+			position:relative;
+			float:left;
+		}
+		.face{
+			position:absolute;
+			top:-18px;
+			left:-1px;
+			width:16px;
+			height:16px;
+			display:block;
+			background-image: url(images/face.png);
+			display:none;
+		}
+		.star:hover,.star.focus{
+			background-position:-1px -17px;
+		}
+		#wrap{
+			width:1000px;
+			margin:100px auto;
+		}
+		#score{color:#e4393c;}
+		.item{
+			float:left;
+			margin-right:30px;
+		}
+		.commstar{
+			width:70px;
+			display:inline-block;
+		}
+	</style>
+<body>
+	<div id="wrap">
+		<div class="item">
+			<span class="label">快递包装</span>
+			<span class="commstar">
+				<span class="star" data-score="1"><i class="face"></i></span>
+				<span class="star" data-score="2"><i class="face"></i></span>
+				<span class="star" data-score="3"><i class="face"></i></span>
+				<span class="star" data-score="4"><i class="face"></i></span>
+				<span class="star" data-score="5"><i class="face"></i></span>
+			</span>
+			<span id="score">0分</span>
+		</div>
+	</div>
+
+	<script>
+		var $starList = $("span .star")
+		var commstar = document.getElementsByClassName("commstar")[0]
+		$starList.mouseenter(function(){
+			var i = this.getAttribute("data-score")
+			for (var a = 0; a < $starList.length; a++) {
+				if (a < i) {
+					$starList.eq(a).addClass("focus")
+				}
+				else{
+					$starList.eq(a).removeClass("focus")
+				}
+				commstar.getElementsByClassName("face")[a].style.display = "none"
+			}
+			this.firstChild.style.display = "block"
+			this.firstChild.style.backgroundPosition =(i * 20) + "px"
+		})
+		$(".commstar").mouseleave(function(){
+			for (var c = 0; c < $starList.length; c++) {
+				commstar.getElementsByClassName("face")[c].style.display = "none"
+				$starList.eq(c).removeClass("focus")
+			}
+		})
+		$starList.click(function(){
+			var i = this.getAttribute("data-score")
+			for (var a = 0; a < $starList.length; a++) {
+				$starList.eq(a).addClass("focus")
+			}
+		})	
+	</script>
+</body>
+</html>
