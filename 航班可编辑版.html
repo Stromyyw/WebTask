@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+  <script src="../jQurey.min.js"></script>
+	 <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+   <script src="../killstrom.js"></script>
+   <style>
+    #add{
+      display: none;
+    }
+    tr,td{
+      width:16%;
+    }
+    .nomargin{
+      overflow: hidden;
+    }
+    .mask{
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      background-color: rgba(0,0,0,0.3);
+    }
+    .nonono{
+      width:400px;
+      height:150px;
+      position: absolute;
+      top:35%;
+      left:45%;
+      background-color: #254336b3;
+      display: none;
+      z-index: 10;
+    }
+    .no,.yes{
+      position: absolute;
+      bottom:30px;
+      left:35%;
+    }
+    .yes{
+      left:50%;
+    }
+    .pic{
+      position: absolute;
+      top:40px;
+      left:90px;
+      width:40px;
+      height:40px;
+    }
+    .didyou{
+      position: absolute;
+      top:50px;
+      left:140px;
+      color:#fff;
+      font-size: 16px;
+      width:160px;
+    }
+   </style>
+</head>
+<body>
+  <div class="nomargin">
+    <h3>XI'AN XIANYANG INT'L AIRPORT (陕西 西安 CN) ZLXY / XIY 离港</h3><hr>
+    <table class="table">
+    	<thead>
+          <tr class="name">
+            <th>标识符</th>
+            <th>机型</th>
+            <th>目的地</th>
+            <th>出发</th>
+            <th>到达</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>AAR348</td>
+            <td>A321</td>
+            <td>Incheon Int'l (ICN)</td>
+            <td>15:10 CST</td>
+            <td>18:14 KST</td>
+            <td>
+          		<button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+          	</td>
+          </tr>
+          <tr>
+            <td>CHH7841</td>
+            <td>B738</td>
+            <td>Shanghai Pudong Int'l (PVG)</td>
+            <td>15:08 CST</td>
+            <td>17:13 CST</td>
+            <td>
+          		<button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+          	</td>
+          </tr>
+          <tr>
+            <td>FZA6695</td>
+            <td>B738</td>
+            <td>Quanzhou Jinjiang (JJN)</td>
+            <td>15:05 CST</td>
+            <td>17:45 CST</td>
+            <td>
+          		<button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+          	</td>
+          </tr>
+          <tr>
+            <td>CHH7873</td>
+            <td>B738</td>
+            <td>Shenzhen Bao'an Int'l (SZX)</td>
+            <td>15:02 CST</td>
+            <td>18:00 CST</td>
+            <td>
+          		<button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+          	</td>
+
+          </tr>
+          <tr>
+            <td>CHH7509</td>
+            <td>B738</td>
+            <td>Fuzhou Changle Int'l (FOC)</td>
+            <td>	15:00 CST</td>
+            <td>17:28 CST</td>
+            <td>
+          		<button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+          	</td>
+          </tr>
+          <tr>
+            <td>OKA2885</td>
+            <td>B738</td>
+            <td>Urumqi Diwopu Int'l (URC)</td>
+            <td>	14:54 CST</td>
+            <td>18:29 CST</td>
+            <td>
+          		<button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+          	</td>
+          </tr>
+          <tr>
+            <td>CES2321</td>
+            <td>A319</td>
+            <td>Karamay (KRY)</td>
+            <td>	14:51 CST</td>
+            <td>18:26 CST</td>
+            <td>
+          		<button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+          	</td>
+          </tr>
+          <tr>
+            <td>CES2259</td>
+            <td>A320</td>
+            <td>Lüliang (LLV)</td>
+            <td>	14:44 CST</td>
+            <td>15:31 CST</td>
+            <td>
+          		<button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+          	</td>
+          </tr>
+          <tr>
+            <td>CES2271</td>
+            <td>A320</td>
+            <td>Changchun Longjia Int'l (CGQ)</td>
+            <td>	14:40 CST</td>
+            <td>17:11 CST</td>
+            <td>
+          		<button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+          	</td>
+          </tr>
+          <tr>
+            <td>CXA855</td>
+            <td>B738</td>
+            <td>Fuzhou Changle Int'l (FOC)</td>
+            <td>	14:39 CST</td>
+            <td>16:38 CST</td>
+            <td>
+          		<button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+          	</td>
+          </tr>
+          <tr>
+            <td>CSZ9273</td>
+            <td>A320</td>
+            <td>Shubuling (LYI)</td>
+            <td>	14:37 CST</td>
+            <td>16:05 CST</td>
+            <td>
+          		<button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+          	</td>
+          </tr>
+          <tr>
+            <td>CSZ9273</td>
+            <td>A320</td>
+            <td>Shubuling (LYI)</td>
+            <td>  14:37 CST</td>
+            <td>16:05 CST</td>
+            <td>
+              <button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+            </td>
+          </tr>
+          <tr>
+            <td>CSZ9273</td>
+            <td>A320</td>
+            <td>Shubuling (LYI)</td>
+            <td>  14:37 CST</td>
+            <td>16:05 CST</td>
+            <td>
+              <button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+            </td>
+          </tr>
+          <tr>
+            <td>CSZ9273</td>
+            <td>A320</td>
+            <td>Shubuling (LYI)</td>
+            <td>  14:37 CST</td>
+            <td>16:05 CST</td>
+            <td>
+              <button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+            </td>
+          </tr>
+          <tr>
+            <td>CSZ9273</td>
+            <td>A320</td>
+            <td>Shubuling (LYI)</td>
+            <td>  14:37 CST</td>
+            <td>16:05 CST</td>
+            <td>
+              <button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+            </td>
+          </tr>
+          <tr>
+            <td>CSZ9273</td>
+            <td>A320</td>
+            <td>Shubuling (LYI)</td>
+            <td>  14:37 CST</td>
+            <td>16:05 CST</td>
+            <td>
+              <button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+            </td>
+          </tr>
+          <tr>
+            <td>CSZ9273</td>
+            <td>A320</td>
+            <td>Shubuling (LYI)</td>
+            <td>  14:37 CST</td>
+            <td>16:05 CST</td>
+            <td>
+              <button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+            </td>
+          </tr>
+          <tr>
+            <td>CSZ9273</td>
+            <td>A320</td>
+            <td>Shubuling (LYI)</td>
+            <td>  14:37 CST</td>
+            <td>16:05 CST</td>
+            <td>
+              <button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+            </td>
+          </tr>
+          <tr>
+            <td>CSZ9273</td>
+            <td>A320</td>
+            <td>Shubuling (LYI)</td>
+            <td>  14:37 CST</td>
+            <td>16:05 CST</td>
+            <td>
+              <button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+            </td>
+          </tr>
+          <tr>
+            <td>CSZ9273</td>
+            <td>A320</td>
+            <td>Shubuling (LYI)</td>
+            <td>  14:37 CST</td>
+            <td>16:05 CST</td>
+            <td>
+              <button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+            </td>
+          </tr>
+          <tr>
+            <td>CSZ9273</td>
+            <td>A320</td>
+            <td>Shubuling (LYI)</td>
+            <td>  14:37 CST</td>
+            <td>16:05 CST</td>
+            <td>
+              <button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+            </td>
+          </tr>
+          <tr>
+            <td>CSZ9273</td>
+            <td>A320</td>
+            <td>Shubuling (LYI)</td>
+            <td>  14:37 CST</td>
+            <td>16:05 CST</td>
+            <td>
+              <button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+            </td>
+          </tr>
+          <tr>
+            <td>CSZ9273</td>
+            <td>A320</td>
+            <td>Shubuling (LYI)</td>
+            <td>  14:37 CST</td>
+            <td>16:05 CST</td>
+            <td>
+              <button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+            </td>
+          </tr>
+          <tr>
+            <td>CSZ9273</td>
+            <td>A320</td>
+            <td>Shubuling (LYI)</td>
+            <td>  14:37 CST</td>
+            <td>16:05 CST</td>
+            <td>
+              <button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+            </td>
+          </tr>
+          <tr>
+            <td>CSZ9273</td>
+            <td>A320</td>
+            <td>Shubuling (LYI)</td>
+            <td>  14:37 CST</td>
+            <td>16:05 CST</td>
+            <td>
+              <button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+            </td>
+          </tr>
+          <tr>
+            <td>CSZ9273</td>
+            <td>A320</td>
+            <td>Shubuling (LYI)</td>
+            <td>  14:37 CST</td>
+            <td>16:05 CST</td>
+            <td>
+              <button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+            </td>
+          </tr>
+          <tr>
+            <td>CSZ9273</td>
+            <td>A320</td>
+            <td>Shubuling (LYI)</td>
+            <td>  14:37 CST</td>
+            <td>16:05 CST</td>
+            <td>
+              <button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+            </td>
+          </tr>
+          <tr>
+            <td>CSZ9273</td>
+            <td>A320</td>
+            <td>Shubuling (LYI)</td>
+            <td>  14:37 CST</td>
+            <td>16:05 CST</td>
+            <td>
+              <button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+            </td>
+          </tr>
+          <tr>
+            <td>CSZ9273</td>
+            <td>A320</td>
+            <td>Shubuling (LYI)</td>
+            <td>  14:37 CST</td>
+            <td>16:05 CST</td>
+            <td>
+              <button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+            </td>
+          </tr>
+          <tr>
+            <td>CSZ9273</td>
+            <td>A320</td>
+            <td>Shubuling (LYI)</td>
+            <td>  14:37 CST</td>
+            <td>16:05 CST</td>
+            <td>
+              <button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+            </td>
+          </tr>
+          <tr id = "add">
+          	<td></td>
+          	<td></td>
+          	<td></td>
+          	<td></td>
+          	<td></td>
+          	<td class="doit">
+          		<button class = "addData">插入</button>
+              <button class = "setData">清空</button>
+              <button class = "delData">删除</button>
+          	</td>
+          </tr>
+      </tbody>
+    </table>
+    <div class="nonono">
+      <img class="pic" src="" alt="">
+      <div class="didyou"></div>
+      <button class="yes">确定</button>
+      <button class="no">取消</button>
+    </div>
+</div>
+<script>
+  var add = getobj("#add")
+  var table = getobj("table")
+  var $yes = $(".yes")
+  var $no = $(".no")
+  // var imgurl = "images/"
+  // 遮罩层&弹出框生成函数
+  function createTalk(picurl,passages){
+    $mask = $("<div class='mask'></div>")
+    $mask.appendTo($("body"))
+    $(".nonono").find(".pic").attr("src",picurl + ".png")
+    $(".nonono").find(".didyou").html(passages)
+    $mask.css({
+      height:$("body")[0].offsetHeight
+    })
+    $(".nonono").fadeIn()
+    $(".nonono").css({
+      left:($("body")[0].offsetWidth - $(".nonono")[0].offsetWidth)/2 + "px",
+      top:(document.documentElement.clientHeight - $(".nonono")[0].offsetHeight)/2 + document.documentElement.scrollTop + "px"
+    })
+  }
+  bindEvent(table,"onclick",function(e){
+    _this = e.target
+    _tr = _this.parentNode.parentNode
+    if (_this.className == "addData") {
+      newTr = add.cloneNode(true)
+      newTr.id = ""
+      insertAfter(newTr,_tr)
+      // _tr.parentNode.insertBefore(newTr,_tr.nextSibling)
+    }
+    if ( _this.tagName == "TD" && _this.className !== "doit") {
+      var text = _this.innerHTML
+      var input = document.createElement("input")
+      _this.innerHTML = ""
+      _this.appendChild(input)
+      input.value = text
+      input.focus()
+      input.onblur=function(){
+        var _text = input.value
+        _this.removeChild(input)
+        _this.innerHTML = _text
+      }
+    }
+    if (_this.className == "delData") {
+      createTalk("images/" + "mc_logo_no_text","确定删除此条数据吗")
+    }
+  })
+  //执行函数
+  function eventdoit(fn){
+    $yes.click(function() {
+      $(".mask").fadeOut()
+      $(".mask").remove()
+      $(".nonono").fadeOut()
+      fn()
+    })
+    $no.click(function(){
+      $(".mask").fadeOut()
+      $(".mask").remove()
+      $(".nonono").fadeOut()
+    })
+  }
+  eventdoit(function(){
+     _tr.parentNode.removeChild(_tr)
+  })
+  
+</script>
+</body>
+</html>

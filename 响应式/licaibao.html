@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="pc.css">
+	<link rel="stylesheet" href="phone.css">
+	<script src="../jQurey.min.js"></script>
+	<title>Document</title>
+</head>
+<body>
+	<header>
+		<div class="content">
+			<span class="tel">理财热线：400-888-888</span>
+			<ul>
+				<li><a href="">登录</a></li>
+				<li><a href="">快速注册</a></li>
+				<li class="about"><a href="">关于</a></li>
+				<li class="about"><a href="">帮助</a></li>
+				<li class="donwload"><a href="">APP下载</a></li>
+			</ul>
+		</div>
+	</header>
+	<nav>
+		<img src="images/logo.png" alt="">
+		<ul>
+			<li class="shoye"><a href="">首页</a></li>
+			<li><a href="">理财频道</a></li>
+			<li><a href="">投资频道</a></li>
+			<li><a href="">新手专区</a></li>
+			<li><a href="">安全保障</a></li>
+		</ul>
+	</nav>
+	<div class="dell">
+		<div class="add">
+			<p>平台累计交易金额<span>19888</span>万元</p>
+			<p>过去7天成交金额<span>1888</span>万元</p>
+		</div>
+		<div class="report">
+			<a href="">查看运营报告</a>
+		</div>
+	</div>
+	<div class="bg">
+		<div class="lbt">
+			<div class="first show">
+				<img src="images/P03.png" alt="">
+			</div>
+			<div class="first">
+				<img src="images/P03.png" alt="">
+			</div>
+			<div class="first">
+				<img src="images/P03.png" alt="">
+			</div>
+		</div>
+		<div class="dot">
+			<span class="focus"></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+	<script>
+		var $spanList = $(".dot").find("span")
+		var $imgList = $(".bg").find(".first")
+		var count = $imgList.length
+		var m = 0
+		function hide(){
+			$imgList.hide()
+			$imgList.removeClass("show")
+			$spanList.removeClass("focus")
+		}
+		function show(arng){
+			$imgList.eq(arng).fadeIn()
+			$imgList.eq(arng).addClass("show")
+			$spanList.eq(arng).addClass("focus")
+		}
+		for (var i = 0; i < $spanList.length; i++) {
+			$spanList.eq(i).attr("index",i)		
+			$(".dot").find("span").eq(i).click(function(){
+				hide()
+				m = $(this).attr("index")
+				show(m)
+			})
+		}
+		$(".lbt").click(function(){
+			hide()
+			if (m < count - 1) {
+				m++
+				show(m)
+			}
+			else{
+				m = 0
+				show(m)
+			}
+		})
+		var t = setInterval(function(){
+			$(".lbt").click()
+		},2000)
+		$(".bg").mouseenter(function(){
+			clearInterval(t)
+		})
+		$(".bg").mouseleave(function(){
+			t = setInterval(function(){
+				$(".lbt").click()
+			},2000)
+		})
+	</script>
+	<div class="main">
+		<div class="us">
+			<div class="nature">
+				<div class="left">
+					<h2>安全</h2>
+				</div>
+				<div class="right">
+					<p>国家AAA信用平台</p>
+					<p>银行资金托管</p>
+					<p>上市公司背景保证</p>
+				</div>
+			</div>
+			<div class="nature">
+				<div class="left">
+					<h2>安全</h2>
+				</div>
+				<div class="right">
+					<p>国家AAA信用平台</p>
+					<p>银行资金托管</p>
+					<p>上市公司背景保证</p>
+				</div>
+			</div>
+			<div class="nature killmargin">
+				<div class="left">
+					<h2>安全</h2>
+				</div>
+				<div class="right">
+					<p>国家AAA信用平台</p>
+					<p>银行资金托管</p>
+					<p>上市公司背景保证</p>
+				</div>
+			</div>
+		</div>
+		<div class="gonggao">
+			<div class="left">
+				<p><span>最新公告：</span> <span class="time">2015-12-31</span>元旦期间业务受理及值班公告元旦期间业务受理及值班公告元旦期间业务受理及值班公告元旦期间业务受理及值班公告</p>
+			</div>
+			<div class="right">
+				<p>更多公告</p>
+			</div>
+		</div>
+		<!-- <table class="table" border="1" cellspacing="0">
+			<tbody>
+				<tr>
+					<td rowspan="6" class="td">
+						<span class="tr_L">固定产品期限</span>
+						<span class="tr_l"><em>甄选优质基金</em></span>
+						<span class="tr_l"><em>省时省力</em></span>
+						<span class="tr_l"><em>坐等收益</em></span>
+					</td>
+					<td align="center">
+						<span class="mouth tdmargin">3</span>个月
+					</td>
+					<td align="center">
+						<span class="write tdmargin">约定年化收益率：</span><span class="num">3.5%</span><span class="last">起</span>
+					</td>
+					<td align="center">
+						<span class="write tdmargin">总成交金额：</span><span class="num">1880</span><span class="last">万元</span>
+					</td>
+					<td align="center">
+						<button class="btn btn-warning">购买</button>
+					</td>
+				</tr>
+				<tr>
+					<td align="center">
+						<span class="mouth tdmargin">3</span>个月
+					</td>
+					<td align="center">
+						<span class="write tdmargin">约定年化收益率：</span><span class="num">3.5%</span><span class="last">起</span>
+					</td>
+					<td align="center">
+						<span class="write tdmargin">总成交金额：</span><span class="num">1880</span><span class="last">万元</span>
+					</td>
+					<td align="center">
+						<button class="btn btn-warning">购买</button>
+					</td>
+				</tr>
+				<tr>
+					<td align="center">
+						<span class="mouth tdmargin">3</span>个月
+					</td>
+					<td align="center">
+						<span class="write tdmargin">约定年化收益率：</span><span class="num">3.5%</span><span class="last">起</span>
+					</td>
+					<td align="center">
+						<span class="write tdmargin">总成交金额：</span><span class="num">1880</span><span class="last">万元</span>
+					</td>
+					<td align="center">
+						<button class="btn btn-warning">购买</button>
+					</td>
+				</tr>
+				<tr>
+					<td align="center">
+						<span class="mouth tdmargin">3</span>个月
+					</td>
+					<td align="center">
+						<span class="write tdmargin">约定年化收益率：</span><span class="num">3.5%</span><span class="last">起</span>
+					</td>
+					<td align="center">
+						<span class="write tdmargin">总成交金额：</span><span class="num">1880</span><span class="last">万元</span>
+					</td>
+					<td align="center">
+						<button class="btn btn-warning">购买</button>
+					</td>
+				</tr>
+				<tr>
+					<td align="center">
+						<span class="mouth tdmargin">3</span>个月
+					</td>
+					<td align="center">
+						<span class="write tdmargin">约定年化收益率：</span><span class="num">3.5%</span><span class="last">起</span>
+					</td>
+					<td align="center">
+						<span class="write tdmargin">总成交金额：</span><span class="num">1880</span><span class="last">万元</span>
+					</td>
+					<td align="center">
+						<button class="btn btn-warning">购买</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<table class="table" border="1" cellspacing="0">
+			<tbody>
+				<tr>
+					<td rowspan="6" class="td">
+						<span class="tr_L">债权/散标产品</span>
+						<span class="tr_l"><em>自主投资</em></span>
+						<span class="tr_l"><em>期限灵活</em></span>
+					</td>
+					<td align="center">
+						<span class="mouth tdmargin">3</span>个月<span class="what">日常生活消费</span>
+					</td>
+					<td align="center">
+						<span class="write tdmargin">约定年化收益率：</span><span class="num">3.5%</span>
+					</td>
+					<td align="center">
+						<span class="write tdmargin money">金额：</span><span class="num">1880</span><span class="last">元</span>
+					</td>
+					<td align="center">
+						<button class="btn btn-warning">投标</button>
+					</td>
+				</tr>
+				<tr>
+					<td align="center">
+						<span class="mouth tdmargin">3</span>个月<span class="what">资金周转</span>
+					</td>
+					<td align="center">
+						<span class="write tdmargin">约定年化收益率：</span><span class="num">3.5%</span>
+					</td>
+					<td align="center">
+						<span class="write tdmargin money">金额：</span><span class="num">1880</span><span class="last">元</span>
+					</td>
+					<td align="center">
+						<button class="btn btn-warning">投标</button>
+					</td>
+				</tr>
+				<tr>
+					<td align="center">
+						<span class="mouth tdmargin">3</span>个月<span class="what">个人消费</span>
+					</td>
+					<td align="center">
+						<span class="write tdmargin">约定年化收益率：</span><span class="num">3.5%</span>
+					</td>
+					<td align="center">
+						<span class="write tdmargin money">金额：</span><span class="num">1880</span><span class="last">元</span>
+					</td>
+					<td align="center">
+						<button class="btn btn-warning has">已投标</button>
+					</td>
+				</tr>
+				<tr>
+					<td align="center">
+						<span class="mouth tdmargin">3</span>个月<span class="what">日常生活消</span>
+					</td>
+					<td align="center" align="center">
+						<span class="write tdmargin">约定年化收益率：</span><span class="num">3.5%</span>
+					</td>
+					<td align="center">
+						<span class="write tdmargin money">金额：</span><span class="num">1880</span><span class="last">元</span>
+					</td>
+					<td align="center">
+						<button class="btn btn-warning has">已投标</button>
+					</td>
+				</tr>
+				<tr>
+					<td align="center">
+						<span class="mouth tdmargin">3</span>个月<span class="what">资金周转</span>
+					</td>
+					<td align="center">
+						<span class="write tdmargin">约定年化收益率：</span><span class="num">3.5%</span>
+					</td>
+					<td align="center">
+						<span class="write tdmargin money">金额：</span><span class="num">1880</span><span class="last">元</span>
+					</td>
+					<td align="center">
+						<button class="btn btn-warning has">已投标</button>
+					</td>
+				</tr>
+			</tbody>
+		</table> -->
+		<div class="data data_show">
+			<div class="left">
+				<span class="tr_l tr_L">固定产品期限</span>
+				<span class="tr_l"><em>甄选优质基金</em></span>
+				<span class="tr_l"><em>省时省力</em></span>
+				<span class="tr_l"><em>坐等收益</em></span>
+			</div>
+			<div class="right show_right">
+				<div class="data_1 data_all">
+					<span class="mouth tdmargin">3</span>个月
+				</div>
+				<div class="data_2 data_all">
+					<span class="write tdmargin">约定年化收益率：</span><span class="num">3.50%</span><span class="last">起</span>
+				</div>	
+				<div class="data_3 data_all">
+					<span class="write tdmargin money">总成交金额：</span><span class="num">1880</span><span class="last">万元</span>
+				</div>
+				<div class="data_4 data_all">
+					<span><button>已投标</button></span>
+				</div>
+			</div>
+			<div class="right">
+				<div class="data_1 data_all">
+					<span class="mouth tdmargin">3-6</span>个月
+				</div>
+				<div class="data_2 data_all">
+					<span class="write tdmargin">约定年化收益率：</span><span class="num">3.60%</span><span class="last">起</span>
+				</div>	
+				<div class="data_3 data_all">
+					<span class="write tdmargin money">总成交金额：</span><span class="num">2880</span><span class="last">万元</span>
+				</div>
+				<div class="data_4 data_all">
+					<span><button>已投标</button></span>
+				</div>
+			</div>
+			<div class="right">
+				<div class="data_1 data_all">
+					<span class="mouth tdmargin">6-12</span>个月
+				</div>
+				<div class="data_2 data_all">
+					<span class="write tdmargin">约定年化收益率：</span><span class="num">4.50%</span><span class="last">起</span>
+				</div>	
+				<div class="data_3 data_all">
+					<span class="write tdmargin money">总成交金额：</span><span class="num">3880</span><span class="last">万元</span>
+				</div>
+				<div class="data_4 data_all">
+					<span><button>已投标</button></span>
+				</div>
+			</div>
+			<div class="right">
+				<div class="data_1 data_all">
+					<span class="mouth tdmargin">12-24</span>个月
+				</div>
+				<div class="data_2 data_all">
+					<span class="write tdmargin">约定年化收益率：</span><span class="num">5.60%</span><span class="last">起</span>
+				</div>	
+				<div class="data_3 data_all">
+					<span class="write tdmargin money">总成交金额：</span><span class="num">4880</span><span class="last">万元</span>
+				</div>
+				<div class="data_4 data_all">
+					<span><button>已投标</button></span>
+				</div>
+			</div>
+			<div class="right">
+				<div class="data_1 data_all">
+					<span class="mouth tdmargin">24</span>个月以上
+				</div>
+				<div class="data_2 data_all">
+					<span class="write tdmargin">约定年化收益率：</span><span class="num">6.20%</span><span class="last">起</span>
+				</div>	
+				<div class="data_3 data_all">
+					<span class="write tdmargin money">总成交金额：</span><span class="num">5880</span><span class="last">万元</span>
+				</div>
+				<div class="data_4 data_all">
+					<button>已投标</button>
+				</div>
+			</div>
+		</div>
+		<div class="data">
+			<div class="left left_two">
+				<span class="tr_l tr_L">债权/散标产品</span>
+				<span class="tr_l"><em>自主投资</em></span>
+				<span class="tr_l"><em>期限灵活</em></span>
+			</div>
+			<div class="right right_two">
+				<div class="data_1 data_all">
+					<span class="mouth tdmargin">3</span>个月<span class="what">日常生活消费</span>
+				</div>
+				<div class="data_2 data_all">
+					<span class="write tdmargin">约定年化收益率：</span><span class="num">4.90%</span>
+				</div>	
+				<div class="data_3 data_all">
+					<span class="write tdmargin money">金额：</span><span class="num">18,000</span><span class="last">元</span>
+				</div>
+				<div class="data_4 data_all">
+					<span><button>投标</button></span>
+				</div>
+			</div>
+			<div class="right right_two">
+				<div class="data_1 data_all">
+					<span class="mouth tdmargin">5</span>个月<span class="what">资金周转</span>
+				</div>
+				<div class="data_2 data_all">
+					<span class="write tdmargin">约定年化收益率：</span><span class="num">5.20%</span>
+				</div>	
+				<div class="data_3 data_all">
+					<span class="write tdmargin money">金额：</span><span class="num">28,800</span><span class="last">元</span>
+				</div>
+				<div class="data_4 data_all">
+					<span><button>投标</button></span>
+				</div>
+			</div>
+			<div class="right right_two">
+				<div class="data_1 data_all">
+					<span class="mouth tdmargin">7</span>个月<span class="what">个人消费</span>
+				</div>
+				<div class="data_2 data_all">
+					<span class="write tdmargin">约定年化收益率：</span><span class="num">5.50%</span>
+				</div>	
+				<div class="data_3 data_all">
+					<span class="write tdmargin money">金额：</span><span class="num">38,800</span><span class="last">元</span>
+				</div>
+				<div class="data_4 data_all">
+					<span><button class="other">还款中</button></span>
+				</div>
+			</div>
+			<div class="right right_two">
+				<div class="data_1 data_all">
+					<span class="mouth tdmargin">1</span>个月<span class="what">日常生活消费</span>
+				</div>
+				<div class="data_2 data_all">
+					<span class="write tdmargin">约定年化收益率：</span><span class="num">4.60%</span>
+				</div>	
+				<div class="data_3 data_all">
+					<span class="write tdmargin money">金额：</span><span class="num">48,800</span><span class="last">元</span>
+				</div>
+				<div class="data_4 data_all">
+					<span><button class="other">还款中</button></span>
+				</div>
+			</div>
+			<div class="right right_two show_right">
+				<div class="data_1 data_all">
+					<span class="mouth tdmargin">12</span>个月以上<span class="what">资金周转</span>
+				</div>
+				<div class="data_2 data_all">
+					<span class="write tdmargin">约定年化收益率：</span><span class="num">7.20%</span>
+				</div>	
+				<div class="data_3 data_all">
+					<span class="write tdmargin money">金额：</span><span class="num">58,800</span><span class="last">元</span>
+				</div>
+				<div class="data_4 data_all">
+					<span><button class="other">已满标</button></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="bott">
+		<div class="bottom">
+			<div class="left">
+				<img src="images/PC_01_03.png" alt="">
+			</div>
+			<div class="right">
+				<ul>
+					<li class="li">关于我们</li>
+					<li>公司介绍</li>
+					<li>业务模式</li>
+					<li>合作机构</li>
+					<li>服务协议</li>
+				</ul>
+				<ul>
+					<li class="li">风险防范</li>
+					<li>账户安全</li>
+					<li>安全保障</li>
+				</ul>
+				<ul>
+					<li class="li">理财产品</li>
+					<li>固定保障</li>
+					<li>债权/散标</li>
+				</ul>
+				<ul>
+					<li class="li">交易帮助</li>
+					<li>购买</li>
+					<li>赎回</li>
+					<li>体现</li>
+				</ul>
+				<ul>
+					<li class="li">机构服务</li>
+					<li>机构中心</li>
+					<li>合作联系</li>
+				</ul>
+			</div>
+		</div>	
+	</div>
+	<div class="copy">
+		<div class="copybot">
+			<div class="allimg">
+				<img src="images/PC4503.png" alt="">
+				<img src="images/PC4505.png" alt="">
+			</div>
+		</div>	
+		<div class="copyright">
+			<p>北京某互联网金融公司 版权所有 &copy;2015-2016</p>
+		</div>
+	</div>
+</body>
+</html>
